@@ -13,28 +13,28 @@ class PhoneBook {
     var factory:[Any] = [Input(), Output(), Search(), Edit(), Delete(), End()]
         
     func paly() {
-//        var no = menu(menuItems: menuItems)
+        var no = menu(menuItems: menuItems)
 //        if let input = factory[0] as? Input {
 //            input.run()
 //        }
         
         if no == 1 {
-            input()
+            Input().run()
         }
         if no == 2 {
-            output()
+            Output().run()
         }
         if no == 3 {
-            search()
+            Search().run()
         }
         if no == 4 {
-            edit()
+            Edit().run()
         }
         if no == 5 {
-            delete()
+            Delete().run()
         }
         if no == 6 {
-            end()
+            End().run()
         }
     }
     
