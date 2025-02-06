@@ -12,16 +12,30 @@ class ShapeView {
     
     var shapeList: [Shape]
     //let shapeList: [Shape]
+    var _factory = [] as [() -> Void]
+    var no = 0
     
     init() {
         // init()함수의 목적은 초기화
         shapeList = [Circle(), Rectangle()]
+        _factory = [menu, inputShape, showList, end]
+    }
+    
+    func menu() {
+        print("[1]입력 [2]목록 [3]종료")
+        print("선택", terminator: ": ")
+        no = Int(readLine() ?? "") ?? 0
+    }
+    
+    func end() {
+        print("프로세스를 종료합니다!")
     }
     
     func showList() {
         for shape in shapeList {
             shape.draw()
         }
+        no = 0
     }
     
     func inputShape() {
@@ -30,8 +44,8 @@ class ShapeView {
             print("잘못 입력하셨습니다.")
             return
         }
-        
         appendShpe(choice: intChoice)
+        no = 0
     }
     
     func showNewList(shapeList: [Shape]) {
@@ -97,19 +111,20 @@ class ShapeView {
         // 선택:
         
         while true {
-            print("[1]입력 [2]목록 [3]종료")
-            print("선택", terminator: ": ")
-            let no = Int(readLine() ?? "") ?? 0
-            if no == 1 {
-                inputShape()
-            }
-            if no == 2 {
-                showList()
-            }
+            
+            
+            _factory[no]()
+            
+//            if no == 1 {
+//                inputShape()
+//            }
+//            if no == 2 {
+//                showList()
+//            }
             if no == 3 {
-                print("종료!")
                 break
             }
+            
         }
     }
 }
