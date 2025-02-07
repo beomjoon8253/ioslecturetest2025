@@ -99,8 +99,6 @@ class ShapeView {
         
         //showNewList(shapeList: newShapeList)
         
-        
-        
         // [1]입력 [2]목록 [3]종료
         // 선택: 1
         // [1]Circle [2]Rectangle
@@ -110,10 +108,13 @@ class ShapeView {
         // [1]입력 [2]목록 [3]종료
         // 선택:
         
-        while true {
+        while no != 3 {
+            // 1. 메뉴 실행, 3번 입력
+            // 2. end 실행
+            // 3. 바로 탈출
             
-            
-            _factory[no]()
+            _factory[no]() // 0일때 메뉴 호출
+            _factory[no]() // 메뉴에서 선택한 함수 호출
             
 //            if no == 1 {
 //                inputShape()
@@ -121,10 +122,9 @@ class ShapeView {
 //            if no == 2 {
 //                showList()
 //            }
-            if no == 3 {
-                break
-            }
-            
+//            if no == _factory.count-1 {
+//                break
+//            }
         }
     }
 }
